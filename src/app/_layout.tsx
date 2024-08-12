@@ -1,14 +1,25 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { Stack } from "expo-router";
 import { StatusBar } from "expo-status-bar";
-import { Text, View } from "react-native";
+import { SafeAreaView } from "react-native";
 
 const queryClient = new QueryClient();
+const RootNavigation = () => {
+  return (
+    <Stack>
+      <Stack.Screen
+        name="(tabs)"
+        options={{ headerShown: false }}
+      ></Stack.Screen>
+    </Stack>
+  );
+};
 export default function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <View className="flex-1 items-center justify-center bg-card">
-        <Text className="">fuck u</Text>
-      </View>
+      <SafeAreaView className="flex-1 bg-background">
+        <RootNavigation></RootNavigation>
+      </SafeAreaView>
       <StatusBar style="auto" />
     </QueryClientProvider>
   );
