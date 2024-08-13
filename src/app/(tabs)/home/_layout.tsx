@@ -1,3 +1,4 @@
+import { StackScreenWithSearchBar } from "@/components/header";
 import { Stack } from "expo-router";
 import { View } from "react-native";
 
@@ -8,6 +9,7 @@ const HomeScreenLayout = () => {
         <Stack.Screen
           name="index"
           options={{
+            ...StackScreenWithSearchBar,
             headerTitle: "Home",
           }}
         />

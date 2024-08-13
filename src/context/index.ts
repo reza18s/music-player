@@ -1,4 +1,4 @@
-export const COLOR = {
+export const COLORS = {
   background: "hsl(206 65% 4%)",
   foreground: "hsl(206 10% 97.5%)",
 

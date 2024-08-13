@@ -1,3 +1,4 @@
+import { COLORS } from "@/context";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Stack } from "expo-router";
 import { StatusBar } from "expo-status-bar";
@@ -19,8 +20,8 @@ export default function App() {
     <QueryClientProvider client={queryClient}>
       <SafeAreaView className="flex-1 bg-background">
         <RootNavigation></RootNavigation>
+        <StatusBar style="auto" backgroundColor={COLORS.accent} />
       </SafeAreaView>
-      <StatusBar style="auto" />
     </QueryClientProvider>
   );
 }

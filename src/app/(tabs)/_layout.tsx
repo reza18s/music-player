@@ -1,4 +1,4 @@
-import { COLOR, fontSize } from "@/context";
+import { COLORS, fontSize } from "@/context";
 import { BlurView } from "expo-blur";
 import { Tabs } from "expo-router";
 import { StyleSheet } from "react-native";
@@ -6,12 +6,14 @@ import {
   FontAwesome,
   MaterialCommunityIcons,
   Ionicons,
+  Foundation,
+  FontAwesome6,
 } from "@expo/vector-icons";
 export default function TabsNavigation() {
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: COLOR.primary,
+        tabBarActiveTintColor: COLORS.primary,
         tabBarShowLabel: false,
         tabBarLabelStyle: {
           fontSize: fontSize.xs,
@@ -21,7 +23,7 @@ export default function TabsNavigation() {
         headerShown: false,
         tabBarStyle: {
           position: "absolute",
-          backgroundColor: COLOR.background,
+          backgroundColor: COLORS.background,
           borderTopLeftRadius: 20,
           borderTopRightRadius: 20,
           borderTopWidth: 0,
@@ -33,7 +35,7 @@ export default function TabsNavigation() {
             style={{
               ...StyleSheet.absoluteFillObject,
               overflow: "hidden",
-              backgroundColor: COLOR.background,
+              backgroundColor: COLORS.background,
               borderTopLeftRadius: 20,
               borderTopRightRadius: 20,
             }}
@@ -41,7 +43,15 @@ export default function TabsNavigation() {
         ),
       }}
     >
-      <Tabs.Screen name="home"></Tabs.Screen>
+      <Tabs.Screen
+        name="home"
+        options={{
+          title: "Songs",
+          tabBarIcon: ({ color }) => (
+            <Foundation name="home" size={24} color={color} />
+          ),
+        }}
+      ></Tabs.Screen>
       <Tabs.Screen
         name="(songs)"
         options={{
@@ -73,7 +83,15 @@ export default function TabsNavigation() {
           ),
         }}
       ></Tabs.Screen>
-      <Tabs.Screen name="artist"></Tabs.Screen>
+      <Tabs.Screen
+        name="artist"
+        options={{
+          title: "Artists",
+          tabBarIcon: ({ color }) => (
+            <FontAwesome6 name="users-line" size={20} color={color} />
+          ),
+        }}
+      ></Tabs.Screen>
     </Tabs>
   );
 }
